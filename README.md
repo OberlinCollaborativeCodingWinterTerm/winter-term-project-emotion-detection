@@ -46,3 +46,13 @@ Goal: Debugging, Preparing for the presentation
 
 **Wednesday January 25th:**  
 FINAL PRESENTATIONS!
+
+# Materials list
+
+1. Raspberry Pi 4 B
+2. Camera module
+3. Power supply
+4. SD Card
+5. 2x Servo Motor 360 degrees
+6. LCD and I2C adapter (if not, bluetooth speaker)
+7. 3D printed structure
