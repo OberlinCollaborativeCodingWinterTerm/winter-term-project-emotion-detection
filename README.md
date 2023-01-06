@@ -14,11 +14,11 @@ This device will detect someone's face and follow it. If the person is feeling a
 First meeting.  Find a group and a project.
 
 **Friday January 6th:**    
-Due before class: Create a shared github repo for your group using the github classroom link.  Update README.md to include the names of your group members and a one sentence description of your project.
+Due before class: Create a shared github repo for your group using the github classroom link.  Update README.md to include the names of your group members and a one sentence description of your project. 
 In class: Write a schedule for your project, make sure all your group members can commit to your github, start coding!!!!
 
-**Monday January 9th:**  
-Goal: Learn OpenCV library 
+**Monday January 9th:**  
+Goal: Learn OpenCV library  
 Due before class:  Update your README.md with your schedule.  Everyone in your group must have made a commit (with code) to your repo.
 
 **Wednesday January 11th:**  
