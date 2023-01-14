@@ -49,7 +49,7 @@ FINAL PRESENTATIONS!
 
 # Materials list
 
-1. Raspberry Pi 4 B
+1. Raspberry Pi 3 B
 2. Camera module
 3. Power supply
 4. SD Card
