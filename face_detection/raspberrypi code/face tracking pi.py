@@ -29,7 +29,7 @@ pan = AngularServo(12, min_pulse_width=0.8/1000, max_pulse_width=2.5/1000, pin_f
 pan_cx = 0
 pan.angle = pan_cx
 
-movement = 10
+movement = 5
 
 
 
@@ -85,31 +85,37 @@ while True:
             print('move left')
             pan_cx += movement
 
-            if pan_cx < 0:
-                pan.angle = (pan_cx % -90)
+            if pan_cx < -90:
+                pan_cx = -90
+                pan.angle = pan_cx
+                
             elif pan_cx > 90:
                 pan_cx = 90
                 pan.angle = pan_cx
+                
             else:
-                pan.angle = (pan_cx % 90)
+                pan.angle = pan_cx
+                sleep(1)
            
         if mid_point_x > LINES_WIDTH and mid_point_x < 2*LINES_WIDTH:
             print('centralized')
-            pan.angle = pan_cx % 90
+            pan.angle = pan_cx
     
         # mid point crosses vertical right line
         if mid_point_x > 2*LINES_WIDTH:
             print('move right')
             pan_cx -= movement
-            if pan_cx < 0:
-                pan.angle = (pan_cx % -90)
+            if pan_cx < -90:
+                pan_cx = -90
+                pan.angle = -90
                 
             elif pan_cx > 90:
                 pan_cx = 90
                 pan.angle = pan_cx
                 
             else:
-                pan.angle = (pan_cx % 90)
+                pan.angle = pan_cx
+                sleep(1)
         
         # mid point crosses the horizontal line
         if mid_point_y > LINE_HEIGHT:
