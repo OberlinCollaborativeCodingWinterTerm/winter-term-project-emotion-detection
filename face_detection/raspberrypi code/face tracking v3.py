@@ -1,3 +1,4 @@
+#Below we are importing functionality to our Code, OPEN-CV, Time, and Pimoroni Pan Tilt Hat Package of particular note.
 import cv2, sys, time, os
 from pantilthat import *
 from gpiozero import AngularServo
@@ -6,7 +7,7 @@ from gpiozero.pins.pigpio import PiGPIOFactory
 
 # Frame Size. Smaller is faster, but less accurate.
 # Wide and short is better, since moving your head up and down is harder to do.
-
+# W = 160 and H = 100 are good settings if you are using and earlier Raspberry Pi Version.
 FRAME_W = 320
 FRAME_H = 200
 
@@ -21,6 +22,8 @@ pan = AngularServo(12, min_pulse_width=0.8/1000, max_pulse_width=2.5/1000, pin_f
 tilt = AngularServo(13, min_pulse_width=0.8/1000, max_pulse_width=2.5/1000, pin_factory=factory)
 
 # Set up the Cascade Classifier for face tracking. This is using the Haar Cascade face recognition method with LBP = Local Binary Patterns. 
+# Seen below is commented out the slower method to get face tracking done using only the HAAR method.
+# cascPath = 'haarcascade_frontalface_default.xml' # sys.argv[1]
 cascPath = '/home/pi2/lbpcascade_frontalface.xml'
 faceCascade = cv2.CascadeClassifier(cascPath)
 
@@ -75,9 +78,9 @@ while True:
         turn_x  /= float(FRAME_W/2)
         turn_y  /= float(FRAME_H/2)
 
-        # Scale offset to degrees (PID)
-        turn_x   *= 4.5 # VFOV
-        turn_y   *= 4.5 # HFOV
+        # Scale offset to degrees (that 2.5 value below acts like the Proportional factor in PID)
+        turn_x   *= 4.0 # VFOV
+        turn_y   *= 4.0 # HFOV
         cam_pan  += -turn_x
         cam_tilt += -turn_y
 
@@ -93,7 +96,7 @@ while True:
 
         break
     
-    #Orientate the frame so you can see it.
+    #Orientate the frame so you can see it
     frame = cv2.resize(frame, (320,200))
     frame = cv2.flip(frame, 1)
    
@@ -106,5 +109,5 @@ while True:
         break
 
 # When everything is done, release the capture information and stop everything
-video_capture.release()
+cap.release()
 cv2.destroyAllWindows()
