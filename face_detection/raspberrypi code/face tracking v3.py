@@ -1,4 +1,4 @@
-import cv2, time
+import cv2, sys, time, os
 from pantilthat import *
 from gpiozero import AngularServo
 from gpiozero.pins.pigpio import PiGPIOFactory
@@ -6,10 +6,11 @@ from gpiozero.pins.pigpio import PiGPIOFactory
 
 # Frame Size. Smaller is faster, but less accurate.
 # Wide and short is better, since moving your head up and down is harder to do.
-# W = 160 and H = 100 are good settings if you are using and earlier Raspberry Pi Version.
+
 FRAME_W = 320
 FRAME_H = 200
 
+# Default Pan/Tilt for the camera in degrees. I have set it up to roughly point at my face location when it starts the code.
 # Camera range is from 0 to 180. Alter the values below to determine the starting point for your pan and tilt.
 cam_pan = 0
 cam_tilt = 0
@@ -19,7 +20,9 @@ factory = PiGPIOFactory()
 pan = AngularServo(12, min_pulse_width=0.8/1000, max_pulse_width=2.5/1000, pin_factory=factory)
 tilt = AngularServo(13, min_pulse_width=0.8/1000, max_pulse_width=2.5/1000, pin_factory=factory)
 
-faceCascade = cv2.CascadeClassifier(haarcascade_frontalface_default.xml)
+# Set up the Cascade Classifier for face tracking. This is using the Haar Cascade face recognition method with LBP = Local Binary Patterns. 
+cascPath = '/home/pi2/lbpcascade_frontalface.xml'
+faceCascade = cv2.CascadeClassifier(cascPath)
 
 
 
@@ -73,15 +76,17 @@ while True:
         turn_y  /= float(FRAME_H/2)
 
         # Scale offset to degrees (PID)
-        turn_x   *= 3.5 # VFOV
-        turn_y   *= 3.5 # HFOV
+        turn_x   *= 4.5 # VFOV
+        turn_y   *= 4.5 # HFOV
         cam_pan  += -turn_x
-        cam_tilt += turn_y
+        cam_tilt += -turn_y
 
         # Clamp Pan/Tilt to 0 to 180 degrees
-        cam_pan = max(0,min(90,cam_pan))
-        cam_tilt = max(0,min(90,cam_tilt))
+        cam_pan = max(-90,min(90,cam_pan))
+        cam_tilt = max(-90,min(90,cam_tilt))
 
+        print(f'pan: {cam_pan} - tilt: {cam_tilt}')
+        
         # Update the servos
         pan.angle = int(cam_pan)
         tilt.angle = int(cam_tilt)
@@ -100,6 +105,6 @@ while True:
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
-
+# When everything is done, release the capture information and stop everything
 video_capture.release()
 cv2.destroyAllWindows()
