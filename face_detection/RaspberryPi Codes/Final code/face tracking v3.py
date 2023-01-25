@@ -43,7 +43,7 @@ tilt = AngularServo(13, min_pulse_width=0.8/1000, max_pulse_width=2.5/1000, pin_
 faceCascade = cv.CascadeClassifier('lbpcascade_frontalface.xml')
 
 # Sets up new sizes for the video capture (must be similar to the ones previously stated)
-cap = cv.VideoCapture(0)
+cap = cv.VideoCapture(0) # Legacy camera has to be enabled
 cap.set(cv.CAP_PROP_FRAME_WIDTH,  320);
 cap.set(cv.CAP_PROP_FRAME_HEIGHT, 200);
 time.sleep(1)

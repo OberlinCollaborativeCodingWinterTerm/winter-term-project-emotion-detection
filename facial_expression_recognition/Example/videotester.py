@@ -14,7 +14,6 @@ model = load_model("emotion detection/Example/best_model.h5")
 
 face_haar_cascade = cv2.CascadeClassifier('emotion detection/Example/haarcascade_frontalface_default.xml')
 
-
 cap = cv2.VideoCapture(0)
 
 while True:
