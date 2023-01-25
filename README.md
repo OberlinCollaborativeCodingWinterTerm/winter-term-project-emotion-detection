@@ -1,4 +1,4 @@
-# Emotion detection device
+# Face tracking device & Emotion detection
 
 *Group Members:*
 1. Otavio Paz Nascimento
