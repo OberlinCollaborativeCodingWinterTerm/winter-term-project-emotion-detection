@@ -101,6 +101,10 @@ while True:
         tilt.angle = int(cam_tilt)
 
         break
+        #Orientate the frame so you can see it.
+   
+    # Display the video captured, with rectangles overlayed
+    # onto the Pi desktop 
 
     #If no faces found, just run the loop again
     else: continue
@@ -111,7 +115,10 @@ while True:
                 cv2.rectangle(frame, (fX, fY), (fX + fW, fY + fH),
                               (0, 0, 255), 2)
 
+    frame = cv2.resize(frame, (320,200))
+    frame = cv2.flip(frame, 1)
     cv2.imshow('your_face', frame)
+    
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
