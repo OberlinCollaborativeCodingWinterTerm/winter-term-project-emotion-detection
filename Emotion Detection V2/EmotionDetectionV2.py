@@ -17,7 +17,7 @@ EMOTIONS = ["angry" ,"disgust","scared", "happy", "sad", "surprised",
 camera = cv2.VideoCapture(0) # get video capture objects and store it in the variable camera
 while True:
     frame = camera.read()[1] # read the frame
-    frame = imutils.resize(frame,width=300) # resize the image (frame) to width 300 while maintaining proportion. 
+    frame = imutils.resize(frame,width=300) 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) # convert the color of the image (frame) to gray for easier detection of the edges of the faces
     faces = face_detection.detectMultiScale(gray,scaleFactor=1.1,minNeighbors=5,minSize=(30,30),flags=cv2.CASCADE_SCALE_IMAGE) # Detect faces,
     
