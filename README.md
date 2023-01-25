@@ -8,6 +8,18 @@
 
 This device will detect someone's face and follow it. If the person is feeling a very specific emotion the device will either display the emotion on a LCD monitor or speak it.
 
+# Materials list
+
+1. Raspberry Pi 3 B
+2. Camera module
+3. Power supply (for Raspberry Pi)
+  a. Power supply Module 1PC
+  b. 4x AA battery
+4. SD Card with Raspbian 64 bits
+5. 2x Servo Motor 9g 180 degrees
+6. LCD and I2C adapter (if not, bluetooth speaker)
+7. 3D printed structures
+
 # Schedule
 
 **Wednesday January 4th:**  
@@ -47,12 +59,4 @@ Goal: Debugging, Preparing for the presentation
 **Wednesday January 25th:**  
 FINAL PRESENTATIONS!
 
-# Materials list
 
-1. Raspberry Pi 3 B
-2. Camera module
-3. Power supply
-4. SD Card
-5. 2x Servo Motor 360 degrees
-6. LCD and I2C adapter (if not, bluetooth speaker)
-7. 3D printed structure
