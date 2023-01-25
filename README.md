@@ -8,6 +8,8 @@
 
 This device will detect someone's face and follow it. If the person is feeling a very specific emotion the device will either display the emotion on a LCD monitor or speak it.
 
+![face tracking device](https://i.imgur.com/bWbEHqu.jpg)
+
 # Materials list
 
 1. Raspberry Pi 3 B
