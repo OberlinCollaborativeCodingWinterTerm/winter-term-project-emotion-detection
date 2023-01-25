@@ -42,10 +42,13 @@ tilt.angle = 0
 
 while True:
     frame = cap.read()[1]
+    frame = cv2.flip(frame, -1)
     #reading the frame
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    gray = cv2.equalizeHist( gray )
     faces = face_detection.detectMultiScale(gray,scaleFactor=1.1,minNeighbors=5,minSize=(30,30),flags=cv2.CASCADE_SCALE_IMAGE)
-    
+
+
     if len(faces) > 0:
         faces = sorted(faces, reverse=True,
         key=lambda x: (x[2] - x[0]) * (x[3] - x[1]))[0]
