@@ -65,7 +65,7 @@ while True:
     img = cv.flip(img, -1)
 
     # Convert to greyscale for easier, faster, and accurate face detection
-    gray = cv.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     gray = cv.equalizeHist(gray)
 
     # Do face detection to search for faces from these captures frames
@@ -120,7 +120,9 @@ while True:
     cv.imshow('Video', img)
 
     # type esc at any point this will end the loop
-    if cv.waitKey(1) & 0xFF == ord('esc'):
+    esc = cv.waitKey(30) & 0xff
+
+    if esc == 27:
         break
     
 # When everything is done, release the ccapture, clear the lcd and destroy all windows
