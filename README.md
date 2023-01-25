@@ -12,9 +12,9 @@ This device will detect someone's face and follow it. If the person is feeling a
 
 1. Raspberry Pi 3 B
 2. Camera module
-3. Power supply (for Raspberry Pi)
-  a. Power supply Module 1PC
-  b. 4x AA battery
+3. Power supply (for Raspberry Pi)  
+  a. Power supply Module 1PC  
+  b. 4x AA battery  
 4. SD Card with Raspbian 64 bits
 5. 2x Servo Motor 9g 180 degrees
 6. LCD and I2C adapter (if not, bluetooth speaker)
