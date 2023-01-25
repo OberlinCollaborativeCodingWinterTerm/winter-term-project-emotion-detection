@@ -25,7 +25,7 @@ This device will detect someone's face and follow it. If the person is feeling a
 # Schedule
 
 **Wednesday January 4th:**  
-- First meeting.  
+First meeting.  
 ✅Find a group and a project.  
 
 **Friday January 6th:**    
