@@ -48,11 +48,11 @@ while True:
                 cv2.rectangle(frameClone, (fX, fY), (fX + fW, fY + fH),
                               (0, 0, 255), 2)
 
-
-    width = int(frameClone.shape[1] * 500 / 100) # 
-    height = int(frameClone.shape[0] * 500 / 100)
-    dimensions = (width, height)
-    Show = cv2.resize(frameClone, dimensions, interpolation=cv2.INTER_AREA)
+# Resize the video to make it bigger on the laptop screen
+    width = int(frameClone.shape[1] * 500 / 100) # 50% increase in width
+    height = int(frameClone.shape[0] * 500 / 100) # 50% increase in height
+    dimensions = (width, height) # dimensions with both the width and height
+    Show = cv2.resize(frameClone, dimensions, interpolation=cv2.INTER_AREA) # resize the frameClone video streaming with dimensions above, store it in Show
     cv2.imshow('Video', Show) # show the video streaming in a window named "video"
     if cv2.waitKey(1) & 0xFF == ord('q'): # press q to get out of the loop
         break
