@@ -56,10 +56,10 @@ while True:
     if len(faces) > 0:
         faces = sorted(faces, reverse=True,
         key=lambda x: (x[2] - x[0]) * (x[3] - x[1]))[0]
-        (fX, fY, fW, fH) = faces
+        (x, y, w, h) = faces
             # Extract the region of interest of the face from the grayscale image, resize it to a fixed 28x28 pixels, and then prepare
             # the region of interest for classification via the CNN
-        roi = gray[fY:fY + fH, fX:fX + fW]
+        roi = gray[y:y + h, x:x + w]
         roi = cv2.resize(roi, (64, 64))
         roi = roi.astype("float") / 255.0
         roi = img_to_array(roi)
@@ -117,7 +117,7 @@ while True:
     # Display the video captured, with rectangles overlayed
     # onto the Pi desktop 
     cv2.imshow('Video', frame)
-    cv2.putText(frame, label, (fX, fY - 10)),
+    cv2.putText(frame, label, (x, y - 10)),
     
     # Press q to quit the program 
     if cv2.waitKey(1) & 0xFF == ord('q'):
