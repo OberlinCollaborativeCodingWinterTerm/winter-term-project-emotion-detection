@@ -37,6 +37,8 @@ cap.set(cv2.CAP_PROP_FRAME_WIDTH,  320);
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 200);
 time.sleep(2)
 
+pan.angle = 0
+tilt.angle = 0
 
 while True:
     frame = cap.read()[1]
