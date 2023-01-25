@@ -117,7 +117,8 @@ while True:
     # Display the video captured, with rectangles overlayed
     # onto the Pi desktop 
     cv2.imshow('Video', frame)
-
+    cv2.putText(frame, label, (fX, fY - 10)),
+    
     # Press q to quit the program 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
