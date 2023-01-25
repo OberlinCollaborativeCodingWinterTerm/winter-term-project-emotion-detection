@@ -7,16 +7,16 @@ from keras.models import load_model
 import numpy as np
 
 # parameters for loading data and images
-detection_model_path = 'haarcascade_files/haarcascade_frontalface_default.xml'
-emotion_model_path = 'models/_mini_XCEPTION.102-0.66.hdf5'
+model_path = 'models/_mini_XCEPTION.102-0.66.hdf5'
+cascPath = '/home/pi2/lbpcascade_frontalface.xml'
+
 
 # hyper-parameters for bounding boxes shape
 # loading models
-face_detection = cv2.CascadeClassifier(detection_model_path)
-emotion_classifier = load_model(emotion_model_path, compile=False)
+face_detection = cv2.CascadeClassifier(cascPath)
+emotion_classifier = load_model(model_path, compile=False)
 EMOTIONS = ["angry" ,"disgust","scared", "happy", "sad", "surprised",
  "neutral"]
-
 
 FRAME_W = 320
 FRAME_H = 200
